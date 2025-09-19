@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alumiô</title>
+<style>
+  body {
+    background-image: url('https://paraibacriativa.com.br/wp-content/uploads/2023/10/perfil-capa-icon.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 { color: rgb(160, 24, 24); text-align: center; }
+  h2 { color: rgb(110, 16, 9); text-align: center; }
+
+  dl {
+    margin: 40px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    color: white;
+  }
+
+  dt { font-weight: bold; font-size: 1.3em; margin-top: 15px; color: rgb(119, 11, 8); }
+  dd { margin-left: 20px; margin-bottom: 10px; color: blue; }
+
+  a { color: inherit; text-decoration: none; }
+  a:visited { color: inherit; }
+
+  .barra-full, .barra-full1 {
+    width: 100%;
+    padding: 3px 3px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 6px;
+  }
+
+  .barra-full { background: rgb(43, 43, 252); color: rgb(119, 11, 8); }
+  .barra-full1 { background: rgb(69, 69, 70); color: white; }
+
+  input, textarea {
+    width: 80%;
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+  }
+
+  button {
+    background-color: #800000;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button:hover { background-color: #ff0000; }
+
+  .comment { background: #333; margin: 5px 0; padding: 5px 10px; border-radius: 5px; }
+</style>
+</head>
+<body>
+
+<!-- Player de música -->
+<audio id="backgroundAudio" loop>
+  <source src="Sobreviver .mp3.mp3" type="audio/mpeg">
+  Seu navegador não suporta o elemento de áudio.
+</audio>
+<button onclick="playAudio()" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">▶️ Tocar música</button>
+
+<div class="barra-full1">
+  <h1>Um guia para quem vai curtir esse grande festival em João Pessoa</h1>
+</div>
+
+<div class="barra-full">
+  <h2>Estarão rolando no palco do Vila do Porto nesta sexta-feira</h2>
+</div>
+
+<dl>
+  <!-- Sexta-feira -->
+  <dt><a href="https://www.instagram.com/deadnomads" target="_blank">Dead Nomads</a></dt>
+  <dd>- Banda de indie-psicodélico iniciará às 20:00 horas</dd>
+  <div class="comments" id="comments1"></div>
+  <input type="text" id="name1" placeholder="Seu nome">
+  <textarea id="comment1" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(1)">Enviar comentário</button>
+
+  <dt><a href="https://www.instagram.com/43duo" target="_blank">43 Duo</a></dt>
+  <dd>- Banda de indie-psicodélico iniciará às 21:30 horas</dd>
+  <div class="comments" id="comments2"></div>
+  <input type="text" id="name2" placeholder="Seu nome">
+  <textarea id="comment2" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(2)">Enviar comentário</button>
+
+  <dt><a href="https://www.instagram.com/telaazzu" target="_blank">Tela Azzu</a></dt>
+  <dd>- Iniciará às 23:00 horas</dd>
+  <div class="comments" id="comments3"></div>
+  <input type="text" id="name3" placeholder="Seu nome">
+  <textarea id="comment3" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(3)">Enviar comentário</button>
+</dl>
+
+<div class="barra-full">Para quem vai curtir no sábado, as bandas do palco Vila do Porto serão:</div>
+
+<dl>
+  <!-- Sábado -->
+  <dt><a href="https://www.instagram.com/biancaarufino" target="_blank">Bianca Rufino</a></dt>
+  <dd>- Poesia e música experimental iniciará às 17:00 horas</dd>
+  <div class="comments" id="comments4"></div>
+  <input type="text" id="name4" placeholder="Seu nome">
+  <textarea id="comment4" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(4)">Enviar comentário</button>
+
+  <dt><a href="https://www.instagram.com/guizzzaao" target="_blank">Guizzzão</a></dt>
+  <dd>- R&B / Trap iniciará às 18:00 horas</dd>
+  <div class="comments" id="comments5"></div>
+  <input type="text" id="name5" placeholder="Seu nome">
+  <textarea id="comment5" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(5)">Enviar comentário</button>
+
+  <dt><a href="https://www.instagram.com/longwayhome.lwh" target="_blank">Long Way Home</a></dt>
+  <dd>- Indie Rock iniciará às 19:00 horas</dd>
+  <div class="comments" id="comments6"></div>
+  <input type="text" id="name6" placeholder="Seu nome">
+  <textarea id="comment6" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(6)">Enviar comentário</button>
+
+  <dt><a href="https://www.instagram.com/odeinsone" target="_blank">Ode Insone</a></dt>
+  <dd>- Gothic / Doom Metal iniciará às 20:00 horas</dd>
+  <div class="comments" id="comments7"></div>
+  <input type="text" id="name7" placeholder="Seu nome">
+  <textarea id="comment7" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(7)">Enviar comentário</button>
+
+  <dt><a href="https://www.instagram.com/vermgod" target="_blank">Vermgod</a></dt>
+  <dd>- Black Metal iniciará às 21:00 horas</dd>
+  <div class="comments" id="comments8"></div>
+  <input type="text" id="name8" placeholder="Seu nome">
+  <textarea id="comment8" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(8)">Enviar comentário</button>
+
+  <dt><a href="https://www.instagram.com/djkamet" target="_blank">DJ Kamet</a></dt>
+  <dd>- Funk / Hip Hop / Afrobeats / House iniciará às 22:00 horas</dd>
+  <div class="comments" id="comments9"></div>
+  <input type="text" id="name9" placeholder="Seu nome">
+  <textarea id="comment9" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(9)">Enviar comentário</button>
+
+  <dt><a href="https://www.instagram.com/afurianegra4" target="_blank">A Fúria Negra</a></dt>
+  <dd>- R&B / Rap iniciará às 23:00 horas</dd>
+  <div class="comments" id="comments10"></div>
+  <input type="text" id="name10" placeholder="Seu nome">
+  <textarea id="comment10" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(10)">Enviar comentário</button>
+
+  <dt><a href="https://www.instagram.com/djnelnobeat" target="_blank">DJ Nel + Part.</a></dt>
+  <dd>- Reggae / R&B / Hip Hop / Trap iniciará às 00:00 horas</dd>
+  <div class="comments" id="comments11"></div>
+  <input type="text" id="name11" placeholder="Seu nome">
+  <textarea id="comment11" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(11)">Enviar comentário</button>
+
+  <dt><a href="https://www.instagram.com/blakkmania" target="_blank">Blakk Mania</a></dt>
+  <dd>- Rap iniciará às 01:00 horas</dd>
+  <div class="comments" id="comments12"></div>
+  <input type="text" id="name12" placeholder="Seu nome">
+  <textarea id="comment12" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(12)">Enviar comentário</button>
+
+  <dt><a href="https://www.instagram.com/djnelnobeat" target="_blank">DJ Nel</a></dt>
+  <dd>- Reggae / R&B / Hip Hop / Trap iniciará às 02:00 horas</dd>
+  <div class="comments" id="comments13"></div>
+  <input type="text" id="name13" placeholder="Seu nome">
+  <textarea id="comment13" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(13)">Enviar comentário</button>
+</dl>
+
+<div class="barra-full">Para quem vai curtir no Domingo, as atrações no palco Vila do Porto serão:</div>
+
+<dl>
+  <!-- Domingo -->
+  <dt><a href="https://www.instagram.com/bandapaomofadooficial" target="_blank">Pão Mofado</a></dt>
+  <dd>- Banda de Hard-Tosco iniciará às 16:00 horas</dd>
+  <div class="comments" id="comments14"></div>
+  <input type="text" id="name14" placeholder="Seu nome">
+  <textarea id="comment14" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(14)">Enviar comentário</button>
+
+  <dt><a href="https://www.instagram.com/__flauflau" target="_blank">Flau Flau</a></dt>
+  <dd>- Indie-psicodélico iniciará às 16:40 horas</dd>
+  <div class="comments" id="comments15"></div>
+  <input type="text" id="name15" placeholder="Seu nome">
+  <textarea id="comment15" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(15)">Enviar comentário</button>
+
+  <dt><a href="https://www.instagram.com/kalouv" target="_blank">Kalouv</a></dt>
+  <dd>- Banda de instrumental iniciará às 17:30 horas</dd>
+  <div class="comments" id="comments16"></div>
+  <input type="text" id="name16" placeholder="Seu nome">
+  <textarea id="comment16" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(16)">Enviar comentário</button>
+
+  <dt><a href="https://www.instagram.com/zefirina_bomba" target="_blank">Zefirina Bomba</a></dt>
+  <dd>- Banda de Punk Rock / Garage Punk / Noisecore iniciará às 18:20 horas</dd>
+  <div class="comments" id="comments17"></div>
+  <input type="text" id="name17" placeholder="Seu nome">
+  <textarea id="comment17" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(17)">Enviar comentário</button>
+
+  <dt><a href="https://www.instagram.com/t.o.s.i_hc" target="_blank">Tosi</a></dt>
+  <dd>- Banda de Hardcore/crossover iniciará às 19:00 horas</dd>
+  <div class="comments" id="comments18"></div>
+  <input type="text" id="name18" placeholder="Seu nome">
+  <textarea id="comment18" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(18)">Enviar comentário</button>
+
+  <dt><a href="https://www.instagram.com/disunidosoficial" target="_blank">Disunidos</a></dt>
+  <dd>- Banda de Punk Rock iniciará às 19:40 horas</dd>
+  <div class="comments" id="comments19"></div>
+  <input type="text" id="name19" placeholder="Seu nome">
+  <textarea id="comment19" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(19)">Enviar comentário</button>
+
+  <dt><a href="https://www.instagram.com/desacordo_hc" target="_blank">Desacordo</a></dt>
+  <dd>- Banda de Hardcore iniciará às 20:30 horas</dd>
+  <div class="comments" id="comments20"></div>
+  <input type="text" id="name20" placeholder="Seu nome">
+  <textarea id="comment20" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(20)">Enviar comentário</button>
+
+  <dt><a href="https://www.instagram.com/temporaofc" target="_blank">Tempora</a></dt>
+  <dd>- Banda de Groove / Death Metal iniciará às 21:20 horas</dd>
+  <div class="comments" id="comments21"></div>
+  <input type="text" id="name21" placeholder="Seu nome">
+  <textarea id="comment21" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(21)">Enviar comentário</button>
+
+  <dt><a href="https://www.instagram.com/craniobandoficial" target="_blank">Crânio</a></dt>
+  <dd>- Banda de Thrash Metal iniciará às 22:00 horas</dd>
+  <div class="comments" id="comments22"></div>
+  <input type="text" id="name22" placeholder="Seu nome">
+  <textarea id="comment22" placeholder="Digite seu comentário"></textarea>
+  <button onclick="addComment(22)">Enviar comentário</button>
+</dl>
+
+<script>
+function addComment(bandId) {
+  const name = document.getElementById(`name${bandId}`).value;
+  const comment = document.getElementById(`comment${bandId}`).value;
+
+  if(name && comment) {
+    const commentDiv = document.createElement("div");
+    commentDiv.className = "comment";
+    commentDiv.textContent = `${name}: ${comment}`;
+    document.getElementById(`comments${bandId}`).appendChild(commentDiv);
+
+    // Limpar campos
+    document.getElementById(`name${bandId}`).value = "";
+    document.getElementById(`comment${bandId}`).value = "";
+  } else {
+    alert("Preencha seu nome e comentário!");
+  }
+}
+
+function playAudio() {
+  const audio = document.getElementById('backgroundAudio');
+  audio.play().catch(() => alert("Clique no botão para reproduzir a música."));
+}
+</script>
+
+</body>
+</html>

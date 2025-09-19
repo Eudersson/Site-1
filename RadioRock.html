@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Festival de Bandas</title>
+  <style>
+    body {
+      background-image: url('https://th.bing.com/th/id/R.699958a77d8eae6f676c9837a186d0c5?rik=eSxqoI1%2b5541gA&pid=ImgRaw&r=0');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    h1 { color: rgb(160, 24, 24); text-align: center; }
+    h2 { color: rgb(94, 16, 11); text-align: center; }
+
+    .barra-full, .barra-full1 {
+      width: 100%;
+      padding: 5px;
+      box-sizing: border-box;
+      text-align: center;
+      margin-top: 6px;
+    }
+    .barra-full { background: rgb(43, 43, 252); color: rgb(119, 11, 8); }
+    .barra-full1 { background: rgb(69, 69, 70); color: white; }
+
+    dl {
+      padding: 10px;
+      background-color: rgba(0,0,0,0.6);
+      border-radius: 12px;
+      color: white;
+      margin-bottom: 20px;
+    }
+    dt {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-top: 15px;
+      color: rgb(119, 11, 8);
+    }
+    dd {
+      margin-left: 20px;
+      margin-bottom: 10px;
+      color: blue;
+    }
+
+    button {
+      margin-top: 5px;
+      background-color: #800000;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover { background-color: #ff0000; }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 20px auto;
+    }
+    .bands { flex: 2; }
+    .comments-sidebar {
+      flex: 1;
+      max-height: 80vh;
+      overflow-y: auto;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .comment {
+      background: #333;
+      margin: 5px 0;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Festival Punk Rock</h1>
+
+  <div class="container">
+    <div class="bands">
+      <dl>
+        <dt><a href="https://www.instagram.com/deadnomads" target="_blank">Pão Mofado</a></dt>
+        <dd>- Banda de Hard Tosco iniciará às 16:00 horas</dd>
+        <button onclick="addComment('Pão Mofado')">Comentar</button>
+
+        <dt><a href="https://www.instagram.com/deadnomads" target="_blank">Flau Flau</a></dt>
+        <dd>- Banda de Punk Rock iniciará às 16:40 horas</dd>
+        <button onclick="addComment('Flau Flau')">Comentar</button>
+
+        <dt><a href="https://www.instagram.com/deadnomads" target="_blank">Kalouv</a></dt>
+        <dd>- Banda de Punk Rock iniciará às 17:30 horas</dd>
+        <button onclick="addComment('Kalouv')">Comentar</button>
+      </dl>
+    </div>
+
+    <div class="comments-sidebar" id="comments-sidebar">
+      <h2>Comentários</h2>
+    </div>
+  </div>
+
+  <!-- Player de música (playlist automática) -->
+  <audio id="player" autoplay></audio>
+
+  <script>
+    const musicas = [
+      'musicas/musica1.mp3',
+      'musicas/musica2.mp3',
+      'musicas/musica3.mp3'
+    ];
+
+    let index = 0;
+    const player = document.getElementById('player');
+
+    function tocarProxima() {
+      player.src = musicas[index];
+      player.play().catch(() => console.log("Clique para permitir autoplay no navegador."));
+      index = (index + 1) % musicas.length;
+    }
+
+    player.addEventListener('ended', tocarProxima);
+    tocarProxima(); // inicia a primeira música
+
+    function addComment(bandName) {
+      const name = prompt("Digite seu nome:");
+      const comment = prompt(`Digite seu comentário para ${bandName}:`);
+      if(name && comment) {
+        const commentDiv = document.createElement("div");
+        commentDiv.className = "comment";
+        commentDiv.textContent = `${bandName} - ${name}: ${comment}`;
+        document.getElementById("comments-sidebar").appendChild(commentDiv);
+      } else {
+        alert("Preencha seu nome e comentário!");
+      }
+    }
+  </script>
+
+</body>
+</html>
