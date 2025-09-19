@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RadioRock Clássico</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://th.bing.com/th/id/R.699958a77d8eae6f676c9837a186d0c5?rik=eSxqoI1%2b5541gA&pid=ImgRaw&r=0') no-repeat fixed;
+      background-size: 100% 100%;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+
+    .player {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .player-box {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .player-box audio {
+      width: 300px;
+    }
+
+    .playlist {
+      max-width: 600px;
+      margin: 30px auto;
+      background: rgba(0,0,0,0.5);
+      padding: 15px 25px;
+      border-radius: 10px;
+    }
+
+    .playlist h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    #playlist {
+      list-style: none;
+      padding: 0;
+    }
+
+    #playlist li {
+      padding: 6px 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #playlist li:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Destaque do item ativo */
+    #playlist li.active {
+      background: rgba(255,255,255,0.2);
+      font-weight: bold;
+      color: #00ffea;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="player">
+    <div class="player-box">
+      <h2>Lasca o dedo e bota pra torá!</h2>
+      <audio id="radioPlayer" controls>
+        <source src="Amazing.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+<video id = "VideoPlay" width="320" height="240" controls autoplay loop muted>
+    
+  <source src="vid1.mp4" type="video/mp4">
+  </video>
+  <div class="playlist">
+    <h2>Escolha a que te toca Mais e vai curtir a vida.</h2>
+    <ul id="playlist">
+      
+      <li data-src="Walk This Way.mp3">Aerosmith & Run DMC - Walk This Way</li>
+      <li data-src="Amazing.mp3">Aerosmith - Amazing</li>
+      <li data-src="Crazy.mp3">Aerosmith - Crazy</li>
+      <li data-src="Same Old Song And Dance.mp3">Aerosmith - Same Old Song And Dance</li>
+      <li data-src="This Ain't a Love Song.mp3">Aerosmith - This ain't a love song</li>
+      <li data-src="Angry Chains.mp3">Alice in Chains  - Angry Chains </li>
+      <li data-src="Blitzkrieg Bop.mp3">Ramones- Blitzkrieg Bop</li>
+      
+  <li data-src="musicas/stairway_to_heaven.mp3">Led Zeppelin - Stairway to Heaven</li>
+  <li data-src="musicas/bohemian_rhapsody.mp3">Queen - Bohemian Rhapsody</li>
+  <li data-src="musicas/hotel_california.mp3">Eagles - Hotel California</li>
+  <li data-src="musicas/wish_you_were_here.mp3">Pink Floyd - Wish You Were Here</li>
+  <li data-src="musicas/smoke_on_the_water.mp3">Deep Purple - Smoke on the Water</li>
+  <li data-src="musicas/sweet_child_o_mine.mp3">Guns N' Roses - Sweet Child O' Mine</li>
+  <li data-src="musicas/dont_stop_believin.mp3">Journey - Don't Stop Believin'</li>
+  <li data-src="musicas/highway_to_hell.mp3">AC/DC - Highway to Hell</li>
+  <li data-src="musicas/back_in_black.mp3">AC/DC - Back in Black</li>
+  <li data-src="musicas/you_shook_me_all_night_long.mp3">AC/DC - You Shook Me All Night Long</li>
+  <li data-src="musicas/whole_lotta_love.mp3">Led Zeppelin - Whole Lotta Love</li>
+  <li data-src="musicas/another_brick_in_the_wall.mp3">Pink Floyd - Another Brick in the Wall</li>
+  <li data-src="musicas/more_than_a_feeling.mp3">Boston - More Than a Feeling</li>
+  <li data-src="musicas/free_bird.mp3">Lynyrd Skynyrd - Free Bird</li>
+  <li data-src="musicas/sweet_home_alabama.mp3">Lynyrd Skynyrd - Sweet Home Alabama</li>
+  <li data-src="musicas/dream_on.mp3">Aerosmith - Dream On</li>
+  <li data-src="musicas/walk_this_way.mp3">Aerosmith - Walk This Way</li>
+  <li data-src="musicas/carry_on_wayward_son.mp3">Kansas - Carry On Wayward Son</li>
+  <li data-src="musicas/barracuda.mp3">Heart - Barracuda</li>
+  <li data-src="musicas/rock_and_roll_all_nite.mp3">Kiss - Rock and Roll All Nite</li>
+  <li data-src="musicas/detroit_rock_city.mp3">Kiss - Detroit Rock City</li>
+  <li data-src="musicas/were_not_gonna_take_it.mp3">Twisted Sister - We're Not Gonna Take It</li>
+  <li data-src="musicas/i_wanna_rock.mp3">Twisted Sister - I Wanna Rock</li>
+  <li data-src="musicas/paranoid.mp3">Black Sabbath - Paranoid</li>
+  <li data-src="musicas/iron_man.mp3">Black Sabbath - Iron Man</li>
+  <li data-src="musicas/paint_it_black.mp3">The Rolling Stones - Paint It Black</li>
+  <li data-src="musicas/satisfaction.mp3">The Rolling Stones - (I Can't Get No) Satisfaction</li>
+  <li data-src="musicas/born_to_run.mp3">Bruce Springsteen - Born to Run</li>
+  <li data-src="musicas/pride_and_joy.mp3">Stevie Ray Vaughan - Pride and Joy</li>
+  <li data-src="musicas/comfortably_numb.mp3">Pink Floyd - Comfortably Numb</li>
+  <li data-src="musicas/house_of_the_rising_sun.mp3">The Animals - House of the Rising Sun</li>
+  <li data-src="musicas/white_room.mp3">Cream - White Room</li>
+  <li data-src="musicas/sunshine_of_your_love.mp3">Cream - Sunshine of Your Love</li>
+  <li data-src="musicas/light_my_fire.mp3">The Doors - Light My Fire</li>
+  <li data-src="musicas/break_on_through.mp3">The Doors - Break on Through</li>
+  <li data-src="musicas/all_along_the_watchtower.mp3">Jimi Hendrix - All Along the Watchtower</li>
+  <li data-src="musicas/voodoo_child.mp3">Jimi Hendrix - Voodoo Child</li>
+  <li data-src="musicas/my_generation.mp3">The Who - My Generation</li>
+  <li data-src="musicas/baba_o_riley.mp3">The Who - Baba O'Riley</li>
+  <li data-src="musicas/radar_love.mp3">Golden Earring - Radar Love</li>
+  <li data-src="musicas/foxey_lady.mp3">Jimi Hendrix - Foxey Lady</li>
+  <li data-src="musicas/tush.mp3">ZZ Top - Tush</li>
+  <li data-src="musicas/la_grange.mp3">ZZ Top - La Grange</li>
+  <li data-src="musicas/juke_box_hero.mp3">Foreigner - Juke Box Hero</li>
+  <li data-src="musicas/hot_blooded.mp3">Foreigner - Hot Blooded</li>
+  <li data-src="musicas/run_to_the_hills.mp3">Iron Maiden - Run to the Hills</li>
+  <li data-src="musicas/the_trooper.mp3">Iron Maiden - The Trooper</li>
+  <li data-src="musicas/photograph.mp3">Def Leppard - Photograph</li>
+  <li data-src="musicas/rock_of_ages.mp3">Def Leppard - Rock of Ages</li>
+</ul>
+</ul>
+
+    </ul>
+  </div>
+
+ <script>
+  const player = document.getElementById('radioPlayer'); // Seu player principal
+  const playlistItems = document.querySelectorAll('#playlist li');
+
+  playlistItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const src = item.getAttribute('data-src'); // pega o caminho da música
+      player.src = src;  // muda o src do player
+      player.play();     // inicia a música
+
+      // Remove a classe ativa de todos os itens da playlist
+      playlistItems.forEach(li => li.classList.remove('active'));
+      // Marca o item clicado como ativo
+      item.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
